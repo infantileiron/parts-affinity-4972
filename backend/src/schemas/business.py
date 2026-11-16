@@ -19,6 +19,9 @@ class RunInput(BaseModel):
  min_support:float=Field(default=.15,gt=0,le=1,allow_inf_nan=False)
  min_confidence:float=Field(default=.6,gt=0,le=1,allow_inf_nan=False)
  min_lift:float=Field(default=1,ge=0,le=50,allow_inf_nan=False)
+ cohort_ratio:float=Field(default=.3,gt=0,lt=1,allow_inf_nan=False)
+class SealInput(BaseModel):
+ note:str=Field(default='',max_length=1000)
 class KitInput(BaseModel):
  name:str=Field(min_length=2,max_length=100)
  rule_id:int=Field(gt=0)
